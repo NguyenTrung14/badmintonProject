@@ -5,6 +5,8 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.example.project.exception.TokenInValid;
+import org.example.project.repository.TokenBlackListRepository;
 import org.example.project.securiry.principal.UserDetailService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,9 +20,13 @@ import java.io.IOException;
 public class JwtFilter extends OncePerRequestFilter {
     private final JwtUtils jwtUtils;
     private final UserDetailService userDetailService;
+    private final TokenBlackListRepository  tokenBlackListRepository;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token= getToken(request);
+        if (token != null && tokenBlackListRepository.existsByToken(token)) {
+            throw new TokenInValid("Token has expired");
+        }
         if(token!=null && jwtUtils.validateToken(token)){
             String username=jwtUtils.getUsername(token);
             UserDetails userDetail=userDetailService.loadUserByUsername(username);

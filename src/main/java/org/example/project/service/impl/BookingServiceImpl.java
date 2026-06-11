@@ -59,4 +59,24 @@ public class BookingServiceImpl implements BookingService {
         booking.setTotalPrice(court.getPrice()*hours);
         return bookingRepository.save(booking);
     }
+
+    @Override
+    public Booking approveBooking(Long id) {
+        Booking booking = bookingRepository.findById(id)
+                .orElseThrow(() -> new HttpNotFoundException("Booking not found"));
+
+        booking.setStatus("CONFIRMED");
+
+        return bookingRepository.save(booking);
+    }
+
+    @Override
+    public Booking rejectBooking(Long id) {
+        Booking booking = bookingRepository.findById(id)
+                .orElseThrow(() -> new HttpNotFoundException("Booking not found"));
+
+        booking.setStatus("CANCELLED");
+
+        return bookingRepository.save(booking);
+    }
 }

@@ -1,24 +1,27 @@
 package org.example.project.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
 @Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-public class RefreshToken {
+@Builder
+public class PasswordResetToken {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String token;
-    @OneToOne
-    @JoinColumn(name = "user_Id")
-    private User user;
+
     private Date expiryDate;
-    private boolean revoked;
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

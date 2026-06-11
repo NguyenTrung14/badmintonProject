@@ -5,4 +5,6 @@ import org.example.project.model.dto.BookingRequestDto;
 
 public interface BookingService {
     Booking createBooking(BookingRequestDto bookingDto);
+    Booking approveBooking(Long id);
+    Booking rejectBooking(Long id);
 }

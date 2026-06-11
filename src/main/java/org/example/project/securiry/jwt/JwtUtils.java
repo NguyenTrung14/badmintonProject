@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Service
@@ -49,6 +50,10 @@ public class JwtUtils {
     }
     public String getUsername(String token){
         return Jwts.parser().verifyWith(secretKey()).build().parseSignedClaims(token).getPayload().getSubject();
+    }
+    public Date getExp(String token){
+        return Jwts.parser().verifyWith(secretKey()).build().parseSignedClaims(token).getPayload().getExpiration();
+
     }
 
 }

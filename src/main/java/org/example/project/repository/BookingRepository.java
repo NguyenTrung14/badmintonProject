@@ -11,4 +11,6 @@ import java.util.List;
 public interface BookingRepository extends CrudRepository<Booking, Long> {
     @Query("select b from Booking b where b.court.id=:courtId and b.bookingDate=:bookingDate")
     List<Booking> findByCourtIdAndBookingDate(@Param("courtId") Long courtId,@Param("bookingDate") LocalDate bookingDate);
+    @Query("select b from Booking b where b.user.id=:id")
+    List<Booking> findByUserId(@Param("id") Long id);
 }

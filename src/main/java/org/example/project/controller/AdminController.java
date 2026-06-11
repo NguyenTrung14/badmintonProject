@@ -3,9 +3,11 @@ package org.example.project.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.project.common.reponse.ApiResponse;
+import org.example.project.model.entity.Booking;
 import org.example.project.model.entity.User;
 import org.example.project.model.dto.RegisterRequestDto;
 import org.example.project.service.UserService;
+import org.example.project.service.impl.BookingServiceImpl;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -21,6 +23,8 @@ import java.util.List;
 @RequestMapping("/api/v1/admin")
 public class AdminController {
     private final UserService userService;
+    private final BookingServiceImpl bookingServiceImpl;
+
     @PreAuthorize("hasRole('ADMIN')")
 
     @PutMapping("/{id}")
@@ -43,5 +47,33 @@ public class AdminController {
         List <User> userList=listUser.getContent();
         ApiResponse apiResponse=ApiResponse.builder().success(true).data(userList).status(200).message("SUCCESS").build();
         return ResponseEntity.status(HttpStatus.OK).body(apiResponse);
+    }
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PutMapping("/bookings/{id}/approve")
+    public ResponseEntity<?> approveBooking(@PathVariable Long id) {
+
+        Booking booking = bookingServiceImpl.approveBooking(id);
+
+        ApiResponse response = ApiResponse.builder()
+                .success(true)
+                .message("BOOKING APPROVED")
+                .data(booking)
+                .build();
+
+        return ResponseEntity.ok(response);
+    }
+    @PreAuthorize("hasAnyRole('ADMIN','MANAGER')")
+    @PutMapping("/bookings/{id}/reject")
+    public ResponseEntity<?> rejectBooking(@PathVariable Long id) {
+
+        Booking booking = bookingServiceImpl.rejectBooking(id);
+
+        ApiResponse response = ApiResponse.builder()
+                .success(true)
+                .message("BOOKING REJECTED")
+                .data(booking)
+                .build();
+
+        return ResponseEntity.ok(response);
     }
 }

@@ -68,5 +68,17 @@ public class GlobalHandlerException {
                         .build()
         );
     }
+    @ExceptionHandler(TokenInValid.class)
+    public ResponseEntity<ApiResponse<?>> handleTokenInValid(
+            TokenInValid tokenInValid
+    ){
+        return ResponseEntity.status(401).body(
+                ApiResponse.builder()
+                        .success(false)
+                        .status(401)
+                        .message(tokenInValid.getMessage())
+                        .build()
+        );
+    }
 
 }
