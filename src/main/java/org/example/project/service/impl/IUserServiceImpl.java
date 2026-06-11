@@ -129,7 +129,10 @@ public class IUserServiceImpl implements UserService {
         }
         User user = refreshToken.getUser();
         String accessToken = jwtUtils.generateToken(user, 30 * 60 * 1000L);
-        return new AuthResponse(accessToken, Token);
+        String newToken = jwtUtils.generateToken(user, 7 * 24 * 60 * 60 * 1000L);
+        refreshToken.setToken(newToken);
+        refreshTokenRepository.save(refreshToken);
+        return new AuthResponse(accessToken, newToken);
     }
 
     @Override
@@ -217,7 +220,7 @@ public class IUserServiceImpl implements UserService {
         }
         user.setPassword(passwordEncoder.encode(changePasswordDto.getNewPassword()));
         userRepository.save(user);
-        
+
         RefreshToken refreshToken = refreshTokenRepository.findByUser(user)
                 .orElseThrow(() -> new HttpNotFoundException("Refresh Token not found"));
         refreshToken.setRevoked(true);

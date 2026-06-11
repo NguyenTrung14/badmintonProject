@@ -14192,3 +14192,72 @@ This generated password is for development use only. Your security configuration
 2026-06-11T21:25:22.500+07:00  INFO 37500 --- [project] [restartedMain] org.example.project.ProjectApplication   : Started ProjectApplication in 3.306 seconds (process running for 2128.731)
 2026-06-11T21:26:30.753+07:00  INFO 37500 --- [project] [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-06-11T21:26:30.878+07:00  WARN 37500 --- [project] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<?> org.example.project.controller.UserController.changePassword(org.example.project.model.dto.ChangePasswordDto,org.example.project.securiry.principal.UserPrincipal): [Field error in object 'changePasswordDto' on field 'oldPassword': rejected value [null]; codes [NotBlank.changePasswordDto.oldPassword,NotBlank.oldPassword,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [changePasswordDto.oldPassword,oldPassword]; arguments []; default message [oldPassword]]; default message [Old password is required]] ]
+2026-06-11T21:43:37.599+07:00  INFO 37500 --- [project] [Thread-45] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
+2026-06-11T21:43:37.609+07:00  INFO 37500 --- [project] [Thread-45] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
+2026-06-11T21:43:38.007+07:00  INFO 37500 --- [project] [restartedMain] org.example.project.ProjectApplication   : Starting ProjectApplication using Java 21.0.7 with PID 37500 (E:\Web\prj\project\build\classes\java\main started by Trong An in E:\Web\prj\project)
+2026-06-11T21:43:38.007+07:00  INFO 37500 --- [project] [restartedMain] org.example.project.ProjectApplication   : The following 1 profile is active: "dev"
+2026-06-11T21:43:38.617+07:00  INFO 37500 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-11T21:43:38.617+07:00  INFO 37500 --- [project] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-11T21:43:38.797+07:00  INFO 37500 --- [project] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-11T21:43:38.875+07:00  INFO 37500 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
+2026-06-11T21:43:38.896+07:00  INFO 37500 --- [project] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-13 - Added connection com.mysql.cj.jdbc.ConnectionImpl@382509b6
+2026-06-11T21:43:38.897+07:00  INFO 37500 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
+2026-06-11T21:43:38.900+07:00  WARN 37500 --- [project] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-11T21:43:38.900+07:00  INFO 37500 --- [project] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/badminton?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: badminton/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-11T21:43:39.048+07:00  INFO 37500 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-11T21:43:39.361+07:00  WARN 37500 --- [project] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [E:\Web\prj\project\build\classes\java\main\org\example\project\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.example.project.service.UserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-06-11T21:43:39.361+07:00  INFO 37500 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
+2026-06-11T21:43:39.369+07:00  INFO 37500 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
+2026-06-11T21:43:39.369+07:00  INFO 37500 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-06-11T21:43:39.406+07:00 ERROR 37500 --- [project] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in org.example.project.controller.AdminController required a bean of type 'org.example.project.service.UserService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.example.project.service.UserService' in your configuration.
+
+2026-06-11T21:43:40.890+07:00  INFO 37500 --- [project] [restartedMain] org.example.project.ProjectApplication   : Starting ProjectApplication using Java 21.0.7 with PID 37500 (E:\Web\prj\project\build\classes\java\main started by Trong An in E:\Web\prj\project)
+2026-06-11T21:43:40.890+07:00  INFO 37500 --- [project] [restartedMain] org.example.project.ProjectApplication   : The following 1 profile is active: "dev"
+2026-06-11T21:43:41.254+07:00  INFO 37500 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-11T21:43:41.254+07:00  INFO 37500 --- [project] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-11T21:43:41.427+07:00  INFO 37500 --- [project] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-11T21:43:41.458+07:00  INFO 37500 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Starting...
+2026-06-11T21:43:41.470+07:00  INFO 37500 --- [project] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-14 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c45a321
+2026-06-11T21:43:41.470+07:00  INFO 37500 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Start completed.
+2026-06-11T21:43:41.471+07:00  WARN 37500 --- [project] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-11T21:43:41.472+07:00  INFO 37500 --- [project] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/badminton?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: badminton/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-11T21:43:41.597+07:00  INFO 37500 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-11T21:43:42.007+07:00  WARN 37500 --- [project] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-11T21:43:42.607+07:00  INFO 37500 --- [project] [restartedMain] org.example.project.ProjectApplication   : Started ProjectApplication in 1.729 seconds (process running for 3228.838)
+2026-06-11T21:43:53.468+07:00  INFO 37500 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown initiated...
+2026-06-11T21:43:53.470+07:00  INFO 37500 --- [project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Shutdown completed.
