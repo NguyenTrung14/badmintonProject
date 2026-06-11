@@ -3,7 +3,7 @@ package org.example.project.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.project.common.reponse.ApiResponse;
 import org.example.project.model.entity.Booking;
-import org.example.project.model.entity.dto.BookingRequestDto;
+import org.example.project.model.dto.BookingRequestDto;
 import org.example.project.service.BookingService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

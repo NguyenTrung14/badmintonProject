@@ -1,4 +1,4 @@
-package org.example.project.model.entity.dto;
+package org.example.project.model.dto;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

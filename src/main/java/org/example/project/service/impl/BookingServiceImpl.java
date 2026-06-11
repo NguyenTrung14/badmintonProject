@@ -6,7 +6,7 @@ import org.example.project.exception.ValidAlreadyExistsException;
 import org.example.project.model.entity.Booking;
 import org.example.project.model.entity.Court;
 import org.example.project.model.entity.User;
-import org.example.project.model.entity.dto.BookingRequestDto;
+import org.example.project.model.dto.BookingRequestDto;
 import org.example.project.repository.BookingRepository;
 import org.example.project.repository.CourtRepository;
 import org.example.project.repository.UserRepository;

@@ -2,7 +2,6 @@ package org.example.project.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.example.project.model.entity.dto.BookingRequestDto;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
