@@ -1053,3 +1053,223 @@ Consider defining a bean of type 'org.example.project.service.UserService' in yo
 2026-06-11T13:46:22.754+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2026-06-11T13:46:22.900+07:00  WARN 36356 --- [project] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2026-06-11T13:46:23.123+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Started ProjectApplication in 0.746 seconds (process running for 1201.694)
+2026-06-11T13:53:07.854+07:00  INFO 36356 --- [project] [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2026-06-11T13:53:07.861+07:00  INFO 36356 --- [project] [Thread-24] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2026-06-11T13:53:07.986+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Starting ProjectApplication using Java 21.0.7 with PID 36356 (E:\Web\prj\project\build\classes\java\main started by Trong An in E:\Web\prj\project)
+2026-06-11T13:53:07.986+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-11T13:53:08.559+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-11T13:53:08.560+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-11T13:53:08.706+07:00  WARN 36356 --- [project] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Unsatisfied dependency expressed through method 'entityManagerFactory' parameter 1: Error creating bean with name 'persistenceManagedTypes' defined in class path resource [org/springframework/boot/jpa/autoconfigure/JpaBaseConfiguration$PersistenceManagedTypesConfiguration.class]: Failed to instantiate [org.springframework.orm.jpa.persistenceunit.PersistenceManagedTypes]: Factory method 'persistenceManagedTypes' threw exception with message: Failed to read candidate entity class: file [E:\Web\prj\project\build\classes\java\main\org\example\project\controller\AdminController.class]
+2026-06-11T13:53:08.706+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-06-11T13:53:08.715+07:00 ERROR 36356 --- [project] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Unsatisfied dependency expressed through method 'entityManagerFactory' parameter 1: Error creating bean with name 'persistenceManagedTypes' defined in class path resource [org/springframework/boot/jpa/autoconfigure/JpaBaseConfiguration$PersistenceManagedTypesConfiguration.class]: Failed to instantiate [org.springframework.orm.jpa.persistenceunit.PersistenceManagedTypes]: Factory method 'persistenceManagedTypes' threw exception with message: Failed to read candidate entity class: file [E:\Web\prj\project\build\classes\java\main\org\example\project\controller\AdminController.class]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:546) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621) ~[spring-context-7.0.7.jar:7.0.7]
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-web-server-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-4.0.6.jar:4.0.6]
+	at org.example.project.ProjectApplication.main(ProjectApplication.java:10) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52) ~[spring-boot-devtools-4.0.6.jar:4.0.6]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'persistenceManagedTypes' defined in class path resource [org/springframework/boot/jpa/autoconfigure/JpaBaseConfiguration$PersistenceManagedTypesConfiguration.class]: Failed to instantiate [org.springframework.orm.jpa.persistenceunit.PersistenceManagedTypes]: Factory method 'persistenceManagedTypes' threw exception with message: Failed to read candidate entity class: file [E:\Web\prj\project\build\classes\java\main\org\example\project\controller\AdminController.class]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1362) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1194) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:565) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:1225) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1704) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:912) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 21 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.orm.jpa.persistenceunit.PersistenceManagedTypes]: Factory method 'persistenceManagedTypes' threw exception with message: Failed to read candidate entity class: file [E:\Web\prj\project\build\classes\java\main\org\example\project\controller\AdminController.class]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:183) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:72) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:152) ~[spring-beans-7.0.7.jar:7.0.7]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 35 common frames omitted
+Caused by: jakarta.persistence.PersistenceException: Failed to read candidate entity class: file [E:\Web\prj\project\build\classes\java\main\org\example\project\controller\AdminController.class]
+	at org.springframework.orm.jpa.persistenceunit.PersistenceManagedTypesScanner.scanPackage(PersistenceManagedTypesScanner.java:174) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.persistenceunit.PersistenceManagedTypesScanner.scan(PersistenceManagedTypesScanner.java:126) ~[spring-orm-7.0.7.jar:7.0.7]
+	at org.springframework.boot.jpa.autoconfigure.JpaBaseConfiguration$PersistenceManagedTypesConfiguration.persistenceManagedTypes(JpaBaseConfiguration.java:215) ~[spring-boot-jpa-4.0.6.jar:4.0.6]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:155) ~[spring-beans-7.0.7.jar:7.0.7]
+	... 38 common frames omitted
+Caused by: java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 0
+	at org.springframework.asm.ClassReader.readUnsignedShort(ClassReader.java:3637) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.asm.ClassReader.<init>(ClassReader.java:208) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.asm.ClassReader.<init>(ClassReader.java:180) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.asm.ClassReader.<init>(ClassReader.java:166) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.asm.ClassReader.<init>(ClassReader.java:292) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:56) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:48) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:62) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.core.type.classreading.CachingMetadataReaderFactory.getMetadataReader(CachingMetadataReaderFactory.java:127) ~[spring-core-7.0.7.jar:7.0.7]
+	at org.springframework.orm.jpa.persistenceunit.PersistenceManagedTypesScanner.scanPackage(PersistenceManagedTypesScanner.java:149) ~[spring-orm-7.0.7.jar:7.0.7]
+	... 43 common frames omitted
+
+2026-06-11T13:53:10.323+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Starting ProjectApplication using Java 21.0.7 with PID 36356 (E:\Web\prj\project\build\classes\java\main started by Trong An in E:\Web\prj\project)
+2026-06-11T13:53:10.323+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-11T13:53:10.831+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-11T13:53:10.831+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-11T13:53:10.977+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-11T13:53:11.041+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2026-06-11T13:53:11.051+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-8 - Added connection com.mysql.cj.jdbc.ConnectionImpl@37d66296
+2026-06-11T13:53:11.051+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2026-06-11T13:53:11.052+07:00  WARN 36356 --- [project] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-11T13:53:11.055+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/badminton?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: badminton/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-11T13:53:11.257+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-11T13:53:11.859+07:00  WARN 36356 --- [project] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-11T13:53:12.403+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Started ProjectApplication in 2.122 seconds (process running for 1610.974)
+2026-06-11T13:59:14.599+07:00  INFO 36356 --- [project] [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2026-06-11T13:59:14.604+07:00  INFO 36356 --- [project] [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
+2026-06-11T13:59:14.714+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Starting ProjectApplication using Java 21.0.7 with PID 36356 (E:\Web\prj\project\build\classes\java\main started by Trong An in E:\Web\prj\project)
+2026-06-11T13:59:14.714+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-11T13:59:15.354+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-11T13:59:15.354+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-11T13:59:15.497+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-11T13:59:15.574+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Starting...
+2026-06-11T13:59:15.580+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-9 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1dd7203c
+2026-06-11T13:59:15.581+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Start completed.
+2026-06-11T13:59:15.582+07:00  WARN 36356 --- [project] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-11T13:59:15.582+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/badminton?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: badminton/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-11T13:59:15.765+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-11T13:59:16.224+07:00  WARN 36356 --- [project] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-11T13:59:16.915+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Started ProjectApplication in 2.245 seconds (process running for 1975.487)
+2026-06-11T13:59:18.495+07:00  INFO 36356 --- [project] [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
+2026-06-11T13:59:18.562+07:00  INFO 36356 --- [project] [Thread-35] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
+2026-06-11T13:59:18.649+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Starting ProjectApplication using Java 21.0.7 with PID 36356 (E:\Web\prj\project\build\classes\java\main started by Trong An in E:\Web\prj\project)
+2026-06-11T13:59:18.649+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-11T13:59:19.248+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-11T13:59:19.248+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-11T13:59:19.386+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-11T13:59:19.464+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Starting...
+2026-06-11T13:59:19.476+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-10 - Added connection com.mysql.cj.jdbc.ConnectionImpl@534a2c1b
+2026-06-11T13:59:19.477+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Start completed.
+2026-06-11T13:59:19.480+07:00  WARN 36356 --- [project] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-11T13:59:19.482+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/badminton?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: badminton/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-11T13:59:19.663+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-11T13:59:20.182+07:00  WARN 36356 --- [project] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-11T13:59:20.816+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Started ProjectApplication in 2.194 seconds (process running for 1979.386)
+2026-06-11T14:00:36.959+07:00  INFO 36356 --- [project] [Thread-39] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
+2026-06-11T14:00:36.963+07:00  INFO 36356 --- [project] [Thread-39] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
+2026-06-11T14:00:37.060+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Starting ProjectApplication using Java 21.0.7 with PID 36356 (E:\Web\prj\project\build\classes\java\main started by Trong An in E:\Web\prj\project)
+2026-06-11T14:00:37.061+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-11T14:00:37.502+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-11T14:00:37.502+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-11T14:00:37.612+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-11T14:00:37.658+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Starting...
+2026-06-11T14:00:37.666+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-11 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e3f25df
+2026-06-11T14:00:37.666+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Start completed.
+2026-06-11T14:00:37.669+07:00  WARN 36356 --- [project] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-11T14:00:37.670+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/badminton?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: badminton/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-11T14:00:37.840+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-11T14:00:37.893+07:00  WARN 36356 --- [project] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [E:\Web\prj\project\build\classes\java\main\org\example\project\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.example.project.service.UserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-06-11T14:00:37.894+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
+2026-06-11T14:00:37.913+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
+2026-06-11T14:00:37.913+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-06-11T14:00:37.923+07:00 ERROR 36356 --- [project] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in org.example.project.controller.AdminController required a bean of type 'org.example.project.service.UserService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.example.project.service.UserService' in your configuration.
+
+2026-06-11T14:00:39.439+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Starting ProjectApplication using Java 21.0.7 with PID 36356 (E:\Web\prj\project\build\classes\java\main started by Trong An in E:\Web\prj\project)
+2026-06-11T14:00:39.439+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-11T14:00:39.887+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-11T14:00:39.887+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-11T14:00:40.017+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-11T14:00:40.088+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Starting...
+2026-06-11T14:00:40.096+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-12 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6e753913
+2026-06-11T14:00:40.097+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Start completed.
+2026-06-11T14:00:40.098+07:00  WARN 36356 --- [project] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-11T14:00:40.099+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/badminton?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: badminton/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-11T14:00:40.231+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-11T14:00:40.891+07:00  WARN 36356 --- [project] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-11T14:00:41.502+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Started ProjectApplication in 2.118 seconds (process running for 2060.073)

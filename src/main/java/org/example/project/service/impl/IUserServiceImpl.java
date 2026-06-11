@@ -43,22 +43,29 @@ public class IUserServiceImpl implements UserService {
     }
 
     @Override
-    public User repairUser(Long id,RegisterRequestDto registerRequestDto) {
-        User user = userRepository.findById(id).orElseThrow(()-> new HttpNotFoundException("User not found"));
-        if (userRepository.existsByEmail(registerRequestDto.getEmail())) {
+    public User repairUser(Long id, RegisterRequestDto dto) {
+
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new HttpNotFoundException("User not found"));
+
+        if (userRepository.existsByEmailAndIdNot(dto.getEmail(), id)) {
             throw new ValidAlreadyExistsException("Email Already Exists");
         }
-        if (userRepository.existsByUsername(registerRequestDto.getUsername())) {
+
+        if (userRepository.existsByUsernameAndIdNot(dto.getUsername(), id)) {
             throw new ValidAlreadyExistsException("Username Already Exists");
         }
-        if (userRepository.existsByPhoneNumber(registerRequestDto.getPhoneNumber())) {
+
+        if (userRepository.existsByPhoneNumberAndIdNot(dto.getPhoneNumber(), id)) {
             throw new ValidAlreadyExistsException("PhoneNumber Already Exists");
         }
-        String Password = passwordEncoder.encode(registerRequestDto.getPassword());
-        user.setPassword(Password);
-        user.setPhoneNumber(registerRequestDto.getPhoneNumber());
-        user.setEmail(registerRequestDto.getEmail());
-        user.setUsername(registerRequestDto.getUsername());
+
+        user.setEmail(dto.getEmail());
+        user.setUsername(dto.getUsername());
+        user.setPhoneNumber(dto.getPhoneNumber());
+        if (dto.getPassword() != null && !dto.getPassword().isBlank()) {
+            user.setPassword(passwordEncoder.encode(dto.getPassword()));
+        }
         return userRepository.save(user);
     }
 

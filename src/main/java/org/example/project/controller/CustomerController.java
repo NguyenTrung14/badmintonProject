@@ -1,5 +1,6 @@
 package org.example.project.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.project.common.reponse.ApiResponse;
 import org.example.project.model.entity.Booking;
@@ -20,7 +21,7 @@ public class CustomerController {
     private final BookingService bookingService;
     @PreAuthorize("hasRole('CUSTOMER')")
     @PostMapping("/bookings")
-    public ResponseEntity<?> createBooking(@RequestBody BookingRequestDto bookingDto) {
+    public ResponseEntity<?> createBooking(@Valid @RequestBody BookingRequestDto bookingDto) {
         Booking booking = bookingService.createBooking(bookingDto);
         ApiResponse apiResponse = ApiResponse.builder().
                 status(201)

@@ -14,6 +14,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     boolean existsByUsername(String username);
     boolean existsByEmail( String email);
     boolean existsByPhoneNumber( String phone);
+    boolean existsByEmailAndIdNot(String email, Long id);
+    boolean existsByUsernameAndIdNot(String username, Long id);
+    boolean existsByPhoneNumberAndIdNot(String phoneNumber, Long id);
     @Query("select u from User u where u.isEnabled=true and lower(u.fullName) like lower(concat('%',:search,'%'))")
     Page<User> findAllBySearch(@Param("search") String search, Pageable pageable);
 }
