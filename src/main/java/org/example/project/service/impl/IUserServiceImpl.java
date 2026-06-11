@@ -1,6 +1,7 @@
 package org.example.project.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.project.common.reponse.AuthResponse;
 import org.example.project.exception.HttpNotFoundException;
 import org.example.project.exception.ValidAlreadyExistsException;
 import org.example.project.model.entity.RefreshToken;
@@ -83,7 +84,7 @@ public class IUserServiceImpl implements UserService {
     }
 
     @Override
-    public String login(LoginRequestDto loginRequestDto) {
+    public AuthResponse login(LoginRequestDto loginRequestDto) {
         User user=userRepository.findByUsername(loginRequestDto.getUsername()).orElseThrow(()-> new HttpNotFoundException("User not found"));
         if (!passwordEncoder.matches(loginRequestDto.getPassword(), user.getPassword())) {
             throw new HttpNotFoundException("Wrong Password");
@@ -91,11 +92,11 @@ public class IUserServiceImpl implements UserService {
         String accessToken=jwtUtils.generateToken(user,30*60*1000L);
         String refreshToken=jwtUtils.generateToken(user,7*24*60*60*1000L);
         refreshTokenRepository.save(new RefreshToken(null,refreshToken,user,new Date(new Date().getTime()+7*24*60*60*1000),false));
-        return accessToken;
+        return new AuthResponse(accessToken,refreshToken);
     }
 
     @Override
-    public RefreshToken refreshToken(String Token) {
+    public AuthResponse refreshToken(String Token) {
 
         return null;
     }

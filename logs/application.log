@@ -1273,3 +1273,70 @@ Consider defining a bean of type 'org.example.project.service.UserService' in yo
 2026-06-11T14:00:40.231+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2026-06-11T14:00:40.891+07:00  WARN 36356 --- [project] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2026-06-11T14:00:41.502+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Started ProjectApplication in 2.118 seconds (process running for 2060.073)
+2026-06-11T14:02:43.524+07:00  INFO 36356 --- [project] [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown initiated...
+2026-06-11T14:02:43.527+07:00  INFO 36356 --- [project] [Thread-43] com.zaxxer.hikari.HikariDataSource       : HikariPool-12 - Shutdown completed.
+2026-06-11T14:02:43.629+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Starting ProjectApplication using Java 21.0.7 with PID 36356 (E:\Web\prj\project\build\classes\java\main started by Trong An in E:\Web\prj\project)
+2026-06-11T14:02:43.629+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-11T14:02:44.093+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-11T14:02:44.093+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-11T14:02:44.231+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-11T14:02:44.297+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Starting...
+2026-06-11T14:02:44.308+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-13 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3129524b
+2026-06-11T14:02:44.309+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Start completed.
+2026-06-11T14:02:44.310+07:00  WARN 36356 --- [project] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-11T14:02:44.312+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/badminton?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: badminton/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-11T14:02:44.533+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-11T14:02:44.790+07:00  WARN 36356 --- [project] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [E:\Web\prj\project\build\classes\java\main\org\example\project\controller\AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'org.example.project.service.UserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2026-06-11T14:02:44.791+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown initiated...
+2026-06-11T14:02:44.824+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-13 - Shutdown completed.
+2026-06-11T14:02:44.827+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2026-06-11T14:02:44.846+07:00 ERROR 36356 --- [project] [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in org.example.project.controller.AdminController required a bean of type 'org.example.project.service.UserService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.example.project.service.UserService' in your configuration.
+
+2026-06-11T14:02:46.317+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Starting ProjectApplication using Java 21.0.7 with PID 36356 (E:\Web\prj\project\build\classes\java\main started by Trong An in E:\Web\prj\project)
+2026-06-11T14:02:46.318+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-11T14:02:46.873+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-11T14:02:46.873+07:00  INFO 36356 --- [project] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-11T14:02:47.016+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-11T14:02:47.101+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Starting...
+2026-06-11T14:02:47.106+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-14 - Added connection com.mysql.cj.jdbc.ConnectionImpl@29271934
+2026-06-11T14:02:47.106+07:00  INFO 36356 --- [project] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-14 - Start completed.
+2026-06-11T14:02:47.108+07:00  WARN 36356 --- [project] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-11T14:02:47.108+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/badminton?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: badminton/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-11T14:02:47.478+07:00  INFO 36356 --- [project] [restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-11T14:02:47.865+07:00  WARN 36356 --- [project] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-11T14:02:48.392+07:00  INFO 36356 --- [project] [restartedMain] org.example.project.ProjectApplication   : Started ProjectApplication in 2.108 seconds (process running for 2186.963)

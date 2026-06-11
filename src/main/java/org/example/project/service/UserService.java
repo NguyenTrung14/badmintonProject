@@ -1,5 +1,6 @@
 package org.example.project.service;
 
+import org.example.project.common.reponse.AuthResponse;
 import org.example.project.model.entity.RefreshToken;
 import org.example.project.model.entity.User;
 import org.example.project.model.dto.LoginRequestDto;
@@ -13,6 +14,6 @@ public interface UserService {
     User repairUser(Long id,RegisterRequestDto registerRequestDto);
     Void deleteUser(Long id);
     Page<User> findAllBySearch(String search, Pageable pageable);
-    String login(LoginRequestDto loginRequestDto);
-    RefreshToken refreshToken(String Token);
+    AuthResponse login(LoginRequestDto loginRequestDto);
+    AuthResponse refreshToken(String Token);
 }

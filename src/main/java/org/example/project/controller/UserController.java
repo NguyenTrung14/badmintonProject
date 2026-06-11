@@ -3,6 +3,7 @@ package org.example.project.controller;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.example.project.common.reponse.ApiResponse;
+import org.example.project.common.reponse.AuthResponse;
 import org.example.project.model.entity.User;
 import org.example.project.model.dto.LoginRequestDto;
 import org.example.project.model.dto.RegisterRequestDto;
@@ -27,8 +28,8 @@ public class UserController {
     }
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDto loginRequestDto) {
-        String accessToken=userService.login(loginRequestDto);
-        ApiResponse apiResponse=ApiResponse.builder().success(true).data(accessToken).status(200).message("LOGIN SUCCESS").build();
+        AuthResponse authResponse =userService.login(loginRequestDto);
+        ApiResponse apiResponse=ApiResponse.builder().success(true).data(authResponse).status(200).message("LOGIN SUCCESS").build();
         return ResponseEntity.ok(apiResponse);
     }
 }
