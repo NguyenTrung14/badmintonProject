@@ -7,13 +7,16 @@ import org.example.project.common.reponse.ApiResponse;
 import org.example.project.common.reponse.AuthResponse;
 import org.example.project.model.dto.*;
 import org.example.project.model.entity.User;
+import org.example.project.securiry.principal.UserPrincipal;
 import org.example.project.service.CloudinaryService;
 import org.example.project.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -62,5 +65,15 @@ public class UserController {
         return ResponseEntity.ok("Password changed");
     }
 
+    @PreAuthorize("isAuthenticated()")
+    @PostMapping("/change-password")
+    public ResponseEntity<?> changePassword(
+            @Valid @RequestBody ChangePasswordDto dto,
+            @AuthenticationPrincipal UserPrincipal principal) {
+        String username = principal.getUsername();
+        userService.changePassword(username, dto);
+        ApiResponse apiResponse = ApiResponse.builder().success(true).message("Password changed successfully").build();
+        return ResponseEntity.ok(apiResponse);
+    }
 
 }

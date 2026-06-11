@@ -7,6 +7,7 @@ import org.example.project.exception.HttpNotFoundException;
 import org.example.project.exception.TokenInValid;
 import org.example.project.exception.ValidAlreadyExistsException;
 import org.example.project.model.dto.ResetPasswordDto;
+import org.example.project.model.dto.ChangePasswordDto;
 import org.example.project.model.entity.PasswordResetToken;
 import org.example.project.model.entity.RefreshToken;
 import org.example.project.model.entity.TokenBlackList;
@@ -197,6 +198,28 @@ public class IUserServiceImpl implements UserService {
         userRepository.save(user);
         passwordResetTokenRepository.delete(token);
         RefreshToken refreshToken=refreshTokenRepository.findByUser(user).orElseThrow(() -> new HttpNotFoundException("Refresh Token not found"));
+        refreshToken.setRevoked(true);
+        refreshTokenRepository.save(refreshToken);
+    }
+
+    @Override
+    public void changePassword(String username, ChangePasswordDto changePasswordDto) {
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new HttpNotFoundException("User not found"));
+
+
+        if (!passwordEncoder.matches(changePasswordDto.getOldPassword(), user.getPassword())) {
+            throw new HttpNotFoundException("Old password is incorrect");
+        }
+
+        if (!changePasswordDto.getNewPassword().equals(changePasswordDto.getConfirmPassword())) {
+            throw new HttpNotFoundException("New password and confirm password do not match");
+        }
+        user.setPassword(passwordEncoder.encode(changePasswordDto.getNewPassword()));
+        userRepository.save(user);
+        
+        RefreshToken refreshToken = refreshTokenRepository.findByUser(user)
+                .orElseThrow(() -> new HttpNotFoundException("Refresh Token not found"));
         refreshToken.setRevoked(true);
         refreshTokenRepository.save(refreshToken);
     }

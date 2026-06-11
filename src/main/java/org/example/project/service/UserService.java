@@ -3,6 +3,7 @@ package org.example.project.service;
 import jakarta.servlet.http.HttpServletRequest;
 import org.example.project.common.reponse.AuthResponse;
 import org.example.project.model.dto.ResetPasswordDto;
+import org.example.project.model.dto.ChangePasswordDto;
 import org.example.project.model.entity.RefreshToken;
 import org.example.project.model.entity.User;
 import org.example.project.model.dto.LoginRequestDto;
@@ -21,4 +22,5 @@ public interface UserService {
     Void Logout(HttpServletRequest request);
     String forgotPasswordByEmail(String email);
     void resetPassword(ResetPasswordDto resetPasswordDto);
+    void changePassword(String username, ChangePasswordDto changePasswordDto);
 }
