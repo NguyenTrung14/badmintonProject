@@ -1,6 +1,6 @@
 package org.example.project.exception;
 
-import org.example.project.common.enumType.reponse.ApiResponse;
+import org.example.project.common.reponse.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;

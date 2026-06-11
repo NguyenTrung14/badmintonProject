@@ -1,4 +1,4 @@
-package org.example.project.common.enumType.reponse;
+package org.example.project.common.reponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -2,8 +2,9 @@ package org.example.project.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.example.project.common.enumType.reponse.ApiResponse;
+import org.example.project.common.reponse.ApiResponse;
 import org.example.project.model.entity.User;
+import org.example.project.model.entity.dto.LoginRequestDto;
 import org.example.project.model.entity.dto.RegisterRequestDto;
 import org.example.project.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -24,5 +25,10 @@ public class UserController {
         ApiResponse apiResponse =ApiResponse.builder().success(true).data(user).status(201).message("CREATE SUCCESS").build();
         return ResponseEntity.status(HttpStatus.CREATED).body(apiResponse);
     }
-
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDto loginRequestDto) {
+        String accessToken=userService.login(loginRequestDto);
+        ApiResponse apiResponse=ApiResponse.builder().success(true).data(accessToken).status(200).message("LOGIN SUCCESS").build();
+        return ResponseEntity.ok(apiResponse);
+    }
 }

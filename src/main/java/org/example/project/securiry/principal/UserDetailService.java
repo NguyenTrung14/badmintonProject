@@ -18,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 
 public class UserDetailService implements UserDetailsService {
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
