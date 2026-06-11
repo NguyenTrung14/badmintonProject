@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CustomerController {
     private final BookingService bookingService;
-    @PreAuthorize("hasRole('CUSTOMER')")
     @PostMapping("/create")
     public ResponseEntity<?> createBooking(@RequestBody BookingRequestDto bookingDto) {
         Booking booking = bookingService.createBooking(bookingDto);
