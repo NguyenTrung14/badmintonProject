@@ -2,6 +2,9 @@ package org.example.project.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "court")
 @Getter
@@ -16,6 +19,11 @@ public class Court {
     private String courtName;
     private String type;
     private String imageUrl;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "court_image", joinColumns = @JoinColumn(name = "court_id"))
+    @Column(name = "image_url")
+    @Builder.Default
+    private List<String> imageUrls = new ArrayList<>();
     private Boolean isAvailable;
     private Double price;
     @ManyToOne

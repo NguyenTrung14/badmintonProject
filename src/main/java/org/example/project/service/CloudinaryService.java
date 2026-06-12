@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -28,5 +30,24 @@ public class CloudinaryService {
         } catch (IOException e) {
             throw new HttpUploadImageException("Upload failed");
         }
+    }
+
+    public List<String> uploadFiles(List<MultipartFile> files) {
+        if (files == null) {
+            throw new HttpUploadImageException("No image files selected");
+        }
+
+        List<MultipartFile> validFiles = files.stream()
+                .filter(Objects::nonNull)
+                .filter(file -> !file.isEmpty())
+                .toList();
+
+        if (validFiles.isEmpty()) {
+            throw new HttpUploadImageException("No image files selected");
+        }
+
+        return validFiles.stream()
+                .map(this::uploadFile)
+                .toList();
     }
 }

@@ -80,4 +80,17 @@ public class GlobalHandlerException {
                         .build()
         );
     }
+
+    @ExceptionHandler(HttpUploadImageException.class)
+    public ResponseEntity<ApiResponse<?>> handleUploadImageException(
+            HttpUploadImageException e
+    ) {
+        return ResponseEntity.badRequest().body(
+                ApiResponse.builder()
+                        .success(false)
+                        .status(400)
+                        .message(e.getMessage())
+                        .build()
+        );
+    }
 }
