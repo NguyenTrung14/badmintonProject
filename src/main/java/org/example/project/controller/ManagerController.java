@@ -1,7 +1,6 @@
 package org.example.project.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.example.project.model.entity.Court;
 import org.example.project.service.CloudinaryService;
 import org.example.project.service.CourtService;
 import org.springframework.http.ResponseEntity;
