@@ -7,6 +7,7 @@ import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
 import lombok.RequiredArgsConstructor;
+import org.example.project.exception.TokenInValid;
 import org.example.project.model.entity.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -41,11 +42,11 @@ public class JwtUtils {
                     .build()
                     .parseSignedClaims(token) !=null;
         }catch (ExpiredJwtException e){
-            throw new JwtException("Expired JWT Token");
+            throw new TokenInValid("Expired JWT Token");
         }catch (SignatureException e) {
-            throw new JwtException("Invalid JWT Signature");
+            throw new TokenInValid("Invalid JWT Signature");
         } catch (MalformedJwtException e) {
-            throw new JwtException("Invalid JWT Token");
+            throw new TokenInValid("Invalid JWT Token");
         }
     }
     public String getUsername(String token){

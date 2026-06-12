@@ -184,7 +184,7 @@ public class IUserServiceImpl implements UserService {
                 .expiryDate(new Date(System.currentTimeMillis() + 15 * 60 * 1000))
                 .build();
         passwordResetTokenRepository.save(resetToken);
-        String link="http://localhost:8080/api/v1/reset-password?token"+token;
+        String link="http://localhost:8080/api/v1/reset-password?token="+token;
         return link;
     }
 

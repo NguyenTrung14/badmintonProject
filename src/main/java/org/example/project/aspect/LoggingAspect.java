@@ -1,5 +1,6 @@
 package org.example.project.aspect;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -9,11 +10,8 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
+@Slf4j
 public class LoggingAspect {
-    @Before("execution(* org.example.project.service.*.*(..))")
-    public void beforeMethod(JoinPoint joinPoint) {
-        System.out.println("Method: " + joinPoint.getSignature().getName());
-    }
     @Around("execution(* org.example.project.controller.*.*(..))")
     public Object aroundMethod(ProceedingJoinPoint joinPoint) throws Throwable {
 
@@ -23,7 +21,7 @@ public class LoggingAspect {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("Time: " + (end - start) + "ms");
+        log.info("Method {} executed in {} ms", joinPoint.getSignature(), (end - start));
 
         return result;
     }
