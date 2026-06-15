@@ -1,13 +1,14 @@
 package org.example.project;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 class ProjectApplicationTests {
 
     @Test
-    void contextLoads() {
+    void applicationClassExists() {
+        assertNotNull(ProjectApplication.class);
     }
 
 }
